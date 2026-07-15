@@ -211,35 +211,7 @@ ClosetAI/
 
 ---
 
-## 🎨 Design System
-
-### Color Palette
-
-```css
-Background:    #0B0B0C
-Dark Card:     #161616
-Card:          #222222
-Text Primary:  #F5F5F5
-Gold Accent:   #C8A45C
-Warm LED:      #FFE6B8
-Blue Accent:   #5B8DFF
-Green Success: #55D68A
-Red:           #FF5A63
-```
-
-### Typography
-
-- **UI Text:** System font (SF Pro / Roboto)
-- **Serif Display:** Cormorant Garamond / Playfair Display (3D HUD)
-
----
-
 ## 📄 License
 
 MIT © 2025 Ardit Ceno
 
----
-
-<div align="center">
-  <sub>Built with ❤️ using React Native, Three.js, and TensorFlow.js</sub>
-</div>
