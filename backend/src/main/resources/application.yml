@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: ClosetAI
+
+  datasource:
+    url: jdbc:postgresql://db.iczjtqbtmrlnpsfohaqx.supabase.co:5432/postgres
+    username: postgres
+    password: ArDiT2@@5CeNo
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://iczjtqbtmrlnpsfohaqx.supabase.co/auth/v1
+          jwk-set-uri: https://iczjtqbtmrlnpsfohaqx.supabase.co/auth/v1/.well-known/jwks.json
+
+supabase:
+  url: https://iczjtqbtmrlnpsfohaqx.supabase.co
+  anon-key: sb_publishable_n3QBzIx5WOSjOAKvYSyZBw_a-wkdGWh
+  service-role-key: sb_publishable_n3QBzIx5WOSjOAKvYSyZBw_a-wkdGWh
+
+ai-service:
+  url: ${AI_SERVICE_URL:http://localhost:8000}
+  timeout: 30000
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.closetai: DEBUG
+    org.springframework.security: INFO
