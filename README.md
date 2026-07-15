@@ -1,4 +1,4 @@
-# 👑 ClosetAI — Your AI Fashion Wardrobe
+# ClosetAI — Your AI Fashion Wardrobe
 
 > **An immersive 3D wardrobe experience powered by artificial intelligence.**
 
