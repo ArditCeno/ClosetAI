@@ -36,6 +36,11 @@ Desktop.ini
 # Auto-generated
 mobile/expo-env.d.ts
 
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
 # IDE
 .idea/
 .vscode/
