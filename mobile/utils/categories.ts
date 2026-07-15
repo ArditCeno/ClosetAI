@@ -1,0 +1,58 @@
+import { ClothingCategory } from '../types';
+
+export const CATEGORY_ICONS: Record<ClothingCategory, string> = {
+  tshirt: '👕',
+  shirt: '👔',
+  blouse: '👚',
+  sweater: '🧶',
+  hoodie: '🧥',
+  jacket: '🧥',
+  coat: '🧥',
+  blazer: '👔',
+  dress: '👗',
+  skirt: '👗',
+  jeans: '👖',
+  pants: '👖',
+  shorts: '🩳',
+  sneakers: '👟',
+  shoes: '👞',
+  boots: '🥾',
+  sandals: '🩴',
+  accessory: '💍',
+  other: '📦',
+};
+
+export const CATEGORY_LABELS: Record<ClothingCategory, string> = {
+  tshirt: 'T-Shirts',
+  shirt: 'Shirts',
+  blouse: 'Blouses',
+  sweater: 'Sweaters',
+  hoodie: 'Hoodies',
+  jacket: 'Jackets',
+  coat: 'Coats',
+  blazer: 'Blazers',
+  dress: 'Dresses',
+  skirt: 'Skirts',
+  jeans: 'Jeans',
+  pants: 'Pants',
+  shorts: 'Shorts',
+  sneakers: 'Sneakers',
+  shoes: 'Shoes',
+  boots: 'Boots',
+  sandals: 'Sandals',
+  accessory: 'Accessories',
+  other: 'Other',
+};
+
+export const OCCASION_LABELS: Record<string, string> = {
+  work: '💼 Work',
+  university: '📚 University',
+  date: '💑 Date',
+  wedding: '💒 Wedding',
+  sport: '⚽ Sport',
+  casual: '😎 Casual',
+  formal: '🎩 Formal',
+  travel: '✈️ Travel',
+  interview: '🎯 Interview',
+  party: '🎉 Party',
+};
