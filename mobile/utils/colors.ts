@@ -1,0 +1,30 @@
+export const THEME = {
+  primary: '#3b82f6',
+  primaryDark: '#1d4ed8',
+  secondary: '#8b5cf6',
+  background: '#ffffff',
+  surface: '#f8fafc',
+  text: '#0f172a',
+  textSecondary: '#64748b',
+  border: '#e2e8f0',
+  error: '#ef4444',
+  success: '#22c55e',
+  warning: '#f59e0b',
+};
+
+export const COLOR_NAMES: Record<string, string> = {
+  black: '#000000',
+  white: '#ffffff',
+  gray: '#6b7280',
+  red: '#ef4444',
+  blue: '#3b82f6',
+  green: '#22c55e',
+  yellow: '#f59e0b',
+  purple: '#8b5cf6',
+  pink: '#ec4899',
+  orange: '#f97316',
+  brown: '#78350f',
+  beige: '#f5f5dc',
+  navy: '#1e3a8a',
+  olive: '#4d7c0f',
+};
