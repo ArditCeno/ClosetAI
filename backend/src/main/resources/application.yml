@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:postgresql://db.iczjtqbtmrlnpsfohaqx.supabase.co:5432/postgres
     username: postgres
-    password: PASSWORD
+    password:  your_db_password_here
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
@@ -30,7 +30,7 @@ spring:
 supabase:
   url: https://iczjtqbtmrlnpsfohaqx.supabase.co
   anon-key: sb_publishable_n3QBzIx5WOSjOAKvYSyZBw_a-wkdGWh
-  service-role-key: sb_publishable_n3QBzIx5WOSjOAKvYSyZBw_a-wkdGWh
+  service-role-key: your_service_role_key_here
 
 ai-service:
   url: ${AI_SERVICE_URL:http://localhost:8000}
