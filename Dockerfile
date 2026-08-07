@@ -1,13 +1,19 @@
 FROM maven:3.9.6-eclipse-temurin-21 AS backend-build
 WORKDIR /app/backend
+
 COPY backend/pom.xml .
+RUN mvn dependency:go-offline -B
+
 COPY backend/src ./src
-RUN mvn clean package -DskipTests
+RUN mvn clean package -B -DskipTests -Dorg.slf4j.simpleLogger.defaultLogLevel=warn
+
 
 FROM node:20-alpine AS frontend-build
 WORKDIR /app/mobile
+
 COPY mobile/package*.json ./
 RUN npm install --legacy-peer-deps
+
 COPY mobile/ .
 RUN npx expo export --platform web
 
@@ -20,10 +26,10 @@ WORKDIR /app
 COPY ai-service/requirements.txt ./ai-service/requirements.txt
 RUN python3 -m venv /app/venv && \
     /app/venv/bin/pip install --no-cache-dir -r ./ai-service/requirements.txt
+
 COPY ai-service/ ./ai-service/
 
 COPY --from=backend-build /app/backend/target/*.jar app.jar
-
 COPY --from=frontend-build /app/mobile/dist ./static
 
 RUN mkdir -p /etc/supervisor/conf.d && \
