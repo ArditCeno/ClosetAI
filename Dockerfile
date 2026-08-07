@@ -1,23 +1,41 @@
-FROM maven:3.9-eclipse-temurin-17 AS backend-build
+FROM maven:3.9.6-eclipse-temurin-21 AS backend-build
 WORKDIR /app/backend
-
-COPY . .
+COPY backend/pom.xml .
+COPY backend/src ./src
 RUN mvn clean package -DskipTests
 
-
 FROM node:20-alpine AS frontend-build
-WORKDIR /app/frontend
-COPY package*.json yarn.lock* ./
-RUN npm install
-COPY . .
-RUN npm run build
+WORKDIR /app/mobile
+COPY mobile/package*.json ./
+RUN npm install --legacy-peer-deps
+COPY mobile/ .
+RUN npx expo export --platform web
 
+FROM eclipse-temurin:21-jre-alpine
 
-FROM openjdk:17-jdk-slim
+RUN apk add --no-cache python3 py3-pip supervisor
+
 WORKDIR /app
 
+COPY ai-service/requirements.txt ./ai-service/requirements.txt
+RUN python3 -m venv /app/venv && \
+    /app/venv/bin/pip install --no-cache-dir -r ./ai-service/requirements.txt
+COPY ai-service/ ./ai-service/
 
 COPY --from=backend-build /app/backend/target/*.jar app.jar
 
-EXPOSE 8080
-CMD ["java", "-jar", "app.jar"]
+COPY --from=frontend-build /app/mobile/dist ./static
+
+RUN mkdir -p /etc/supervisor/conf.d && \
+    echo '[supervisord]' > /etc/supervisord.conf && \
+    echo 'nodaemon=true' >> /etc/supervisord.conf && \
+    echo '[program:spring-boot]' >> /etc/supervisord.conf && \
+    echo 'command=java -Dserver.port=10000 -jar /app/app.jar' >> /etc/supervisord.conf && \
+    echo '[program:fastapi]' >> /etc/supervisord.conf && \
+    echo 'command=/app/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8000' >> /etc/supervisord.conf && \
+    echo 'directory=/app/ai-service' >> /etc/supervisord.conf
+
+ENV PORT=10000
+EXPOSE 10000
+
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
