@@ -17,14 +17,18 @@ COPY mobile/ .
 
 ENV CI=true
 ENV NODE_ENV=production
+# Shtohet rruga e binareve të node_modules në PATH
+ENV PATH="/app/mobile/node_modules/.bin:$PATH"
 
-# Krijo direktorinë, krijo skedarin bosh web.css dhe jep lejet e duhura
+# Krijohet struktura e keshit me leje të plota leximi/shkrimi
 RUN mkdir -p node_modules/react-native-css-interop/.cache && \
     touch node_modules/react-native-css-interop/.cache/web.css && \
     chmod -R 777 node_modules/react-native-css-interop
 
-RUN npx tailwindcss -i ./global.css -o ./node_modules/react-native-css-interop/.cache/web.css --minify
+# Gjenerohet CSS-i i Tailwind
+RUN tailwindcss -i ./global.css -o ./node_modules/react-native-css-interop/.cache/web.css --minify
 
+# Eksportohet Expo Web
 RUN npx expo export --platform web
 
 FROM eclipse-temurin:21-jre-alpine
