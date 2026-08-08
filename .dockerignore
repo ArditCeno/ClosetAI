@@ -1,0 +1,9 @@
+mobile/node_modules
+mobile/.expo
+mobile/dist
+backend/target
+ai-service/venv
+ai-service/__pycache__
+.git
+.gitignore
+*.md
