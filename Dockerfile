@@ -7,7 +7,6 @@ RUN mvn dependency:go-offline -B
 COPY backend/src ./src
 RUN mvn clean package -B -DskipTests -Dorg.slf4j.simpleLogger.defaultLogLevel=warn
 
-
 FROM node:20-alpine AS frontend-build
 WORKDIR /app/mobile
 
@@ -15,6 +14,8 @@ COPY mobile/package*.json ./
 RUN npm install --legacy-peer-deps
 
 COPY mobile/ .
+RUN chmod -R 777 node_modules
+ENV TAILWIND_DISABLE_CACHE=1
 RUN npx expo export --platform web
 
 FROM eclipse-temurin:21-jre-alpine
