@@ -14,8 +14,13 @@ COPY mobile/package*.json ./
 RUN npm install --legacy-peer-deps
 
 COPY mobile/ .
-RUN chmod -R 777 node_modules
-ENV TAILWIND_DISABLE_CACHE=1
+
+RUN mkdir -p node_modules/react-native-css-interop/.cache && \
+    chmod -R 777 node_modules
+
+ENV TAILWIND_DISABLE_CACHE=true
+ENV CSS_INTEROP_NO_CACHE=true
+
 RUN npx expo export --platform web
 
 FROM eclipse-temurin:21-jre-alpine
