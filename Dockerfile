@@ -15,13 +15,13 @@ RUN npm install --legacy-peer-deps
 
 COPY mobile/ .
 
-RUN mkdir -p node_modules/react-native-css-interop/.cache && \
-    chmod -R 777 node_modules/react-native-css-interop
-
 ENV CI=true
 ENV NODE_ENV=production
 
-RUN npx tailwindcss -i global.css -o node_modules/react-native-css-interop/.cache/web.css --minify || true
+RUN mkdir -p node_modules/react-native-css-interop/.cache && \
+    chmod -R 777 node_modules/react-native-css-interop
+
+RUN npx tailwindcss -i ./global.css -o ./node_modules/react-native-css-interop/.cache/web.css --minify
 
 RUN npx expo export --platform web
 
@@ -46,7 +46,7 @@ RUN mkdir -p /etc/supervisor/conf.d && \
     echo '[program:spring-boot]' >> /etc/supervisord.conf && \
     echo 'command=java -Dserver.port=10000 -jar /app/app.jar' >> /etc/supervisord.conf && \
     echo '[program:fastapi]' >> /etc/supervisord.conf && \
-    echo 'command=/app/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8000' >> /etc/supervisord.conf && \
+    echo 'command=/app/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000' >> /etc/supervisord.conf && \
     echo 'directory=/app/ai-service' >> /etc/supervisord.conf
 
 ENV PORT=10000
