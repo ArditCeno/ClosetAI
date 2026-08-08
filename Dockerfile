@@ -14,6 +14,10 @@ COPY mobile/package*.json ./
 RUN npm install --legacy-peer-deps
 
 COPY mobile/ .
+
+RUN mkdir -p node_modules/react-native-css-interop/.cache && \
+    touch node_modules/react-native-css-interop/.cache/web.css
+
 RUN npx expo export --platform web
 
 FROM eclipse-temurin:21-jre-alpine
