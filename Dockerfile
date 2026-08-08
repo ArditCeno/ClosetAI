@@ -17,9 +17,12 @@ COPY mobile/ .
 
 RUN mkdir -p node_modules/react-native-css-interop/.cache && \
     touch node_modules/react-native-css-interop/.cache/web.css && \
-    chmod -R 777 node_modules/react-native-css-interop
+    chmod -R 777 node_modules/react-native-css-interop && \
+    chmod -R 777 node_modules/.cache 2>/dev/null || true
 
 ENV CI=true
+ENV NODE_ENV=production
+ENV REACT_NATIVE_CSS_INTEROP_CACHE_DIR=/tmp
 
 RUN npx expo export --platform web
 
