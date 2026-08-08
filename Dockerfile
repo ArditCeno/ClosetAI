@@ -16,7 +16,10 @@ RUN npm install --legacy-peer-deps
 COPY mobile/ .
 
 RUN mkdir -p node_modules/react-native-css-interop/.cache && \
-    touch node_modules/react-native-css-interop/.cache/web.css
+    touch node_modules/react-native-css-interop/.cache/web.css && \
+    chmod -R 777 node_modules/react-native-css-interop
+
+ENV CI=true
 
 RUN npx expo export --platform web
 
