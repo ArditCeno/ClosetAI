@@ -1,3 +1,4 @@
+
 FROM maven:3.9.6-eclipse-temurin-21 AS backend-build
 WORKDIR /app/backend
 
@@ -17,14 +18,6 @@ COPY mobile/ .
 
 ENV CI=true
 ENV NODE_ENV=production
-
-ENV PATH="/app/mobile/node_modules/.bin:$PATH"
-
-RUN mkdir -p node_modules/react-native-css-interop/.cache && \
-    touch node_modules/react-native-css-interop/.cache/web.css && \
-    chmod -R 777 node_modules/react-native-css-interop
-
-RUN tailwindcss -i ./global.css -o ./node_modules/react-native-css-interop/.cache/web.css --minify
 
 RUN npx expo export --platform web
 
