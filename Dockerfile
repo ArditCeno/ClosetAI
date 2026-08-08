@@ -16,13 +16,12 @@ RUN npm install --legacy-peer-deps
 COPY mobile/ .
 
 RUN mkdir -p node_modules/react-native-css-interop/.cache && \
-    touch node_modules/react-native-css-interop/.cache/web.css && \
-    touch node_modules/react-native-css-interop/.cache/native.css && \
-    chmod -R 777 node_modules/react-native-css-interop && \
-    chmod -R 777 node_modules/.cache 2>/dev/null || true
+    chmod -R 777 node_modules/react-native-css-interop
 
-ENV CI=false
+ENV CI=true
 ENV NODE_ENV=production
+
+RUN npx tailwindcss -i global.css -o node_modules/react-native-css-interop/.cache/web.css --minify || true
 
 RUN npx expo export --platform web
 
