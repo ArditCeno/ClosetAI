@@ -18,7 +18,9 @@ COPY mobile/ .
 ENV CI=true
 ENV NODE_ENV=production
 
+# Krijo direktorinë, krijo skedarin bosh web.css dhe jep lejet e duhura
 RUN mkdir -p node_modules/react-native-css-interop/.cache && \
+    touch node_modules/react-native-css-interop/.cache/web.css && \
     chmod -R 777 node_modules/react-native-css-interop
 
 RUN npx tailwindcss -i ./global.css -o ./node_modules/react-native-css-interop/.cache/web.css --minify
