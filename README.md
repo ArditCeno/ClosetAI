@@ -6,9 +6,9 @@ ClosetAI transforms your digital wardrobe into a photorealistic 3D dressing room
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🏛️ Immersive 3D Wardrobe
+###  Immersive 3D Wardrobe
 - **7 interactive sections**: Overview, Jackets, Shoes, Accessories, Profile, AI Stylist, Fitting Room
 - **Cinematic camera** with smooth cubic-easing transitions
 - **Dynamic lighting** that responds to your current section
@@ -16,7 +16,7 @@ ClosetAI transforms your digital wardrobe into a photorealistic 3D dressing room
 - **Post-processing effects**: Bloom, Vignette for a cinematic feel
 - **Fog, shadows, and procedural floor textures** for realism
 
-### 🔍 AI Clothing Recognition
+###  AI Clothing Recognition
 - **TensorFlow.js MobileNet v2** — 88-93% accuracy directly in the browser
 - **Clarifai Fashion Model** — 95-98% accuracy (optional API key)
 - **Google Vision API** — fallback recognition service
@@ -24,19 +24,19 @@ ClosetAI transforms your digital wardrobe into a photorealistic 3D dressing room
 - **Weighted voting** across top-5 predictions for reliable classification
 - **40+ clothing categories** and 20 color standards
 
-### 📸 Scan & Organize
+###  Scan & Organize
 - **Real camera integration** on web (getUserMedia) and mobile (expo-camera)
 - **AI-powered scanning** with HUD overlay
 - **Automatic categorization** of scanned items
 - **Save to digital wardrobe** with one tap
 
-### 👔 Wardrobe Management
+###  Wardrobe Management
 - **Category-based shelves** (Shirts, Pants, Jackets, Shoes, Accessories)
 - **Visual clothing racks** with hanging items
 - **Interactive drawers** with hidden accessories
 - **Recent activity tracking**
 
-### 🤖 AI Stylist
+###  AI Stylist
 - **Smart mirror interface** in the 3D wardrobe
 - **Occasion-based outfit generation**
 - **Fashion chat** with AI suggestions
@@ -44,7 +44,7 @@ ClosetAI transforms your digital wardrobe into a photorealistic 3D dressing room
 
 ---
 
-## 🖥️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -62,7 +62,7 @@ ClosetAI transforms your digital wardrobe into a photorealistic 3D dressing room
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -100,7 +100,7 @@ uvicorn main:app --reload --port 8000
 
 ---
 
-## 🗺️ Project Structure
+##  Project Structure
 
 ```
 ClosetAI/
@@ -148,9 +148,9 @@ ClosetAI/
 
 ---
 
-## 🎯 Future Roadmap
+##  Future Roadmap
 
-### Phase 1: AI Agent — 95%+ Recognition Accuracy 🧠
+### Phase 1: AI Agent — 95%+ Recognition Accuracy 
 
 **Goal:** Achieve industry-leading clothing recognition accuracy.
 
@@ -162,10 +162,10 @@ ClosetAI/
 - **Barcode/QR tag scanning** — instant exact match for tagged items
 
 ```
-📸 Capture → Preprocess → Ensemble Models → Weighted Vote → 95%+ Result
+ Capture → Preprocess → Ensemble Models → Weighted Vote → 95%+ Result
 ```
 
-### Phase 2: Weather Integration 🌤️
+### Phase 2: Weather Integration 
 
 **Goal:** Smart outfit suggestions based on real-time weather.
 
@@ -180,7 +180,7 @@ ClosetAI/
 📍 Location → 🌡️ Weather API → 🧠 AI Analysis → 👔 Outfit Suggestion
 ```
 
-### Phase 3: Wear History & Analytics 📊
+### Phase 3: Wear History & Analytics 
 
 **Goal:** Track when and how often you wear each item.
 
@@ -191,7 +191,7 @@ ClosetAI/
 - **AI "You haven't worn this in 3 months"** — rediscovery notifications
 - **Photo history** — see how an item looks in different outfits over time
 
-### Phase 4: Smart Shopping Assistant 🛍️
+### Phase 4: Smart Shopping Assistant 
 
 **Goal:** Complete your wardrobe intelligently.
 
@@ -202,7 +202,7 @@ ClosetAI/
 - **Budget-aware recommendations** — set price ranges for suggestions
 - **Affiliate product links** — direct links to purchase recommended items
 
-### Phase 5: Social & Sharing 👥
+### Phase 5: Social & Sharing 
 
 - **Outfit of the day (OOTD) sharing** — share looks with friends
 - **Community style challenges**
