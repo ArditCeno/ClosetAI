@@ -213,5 +213,5 @@ ClosetAI/
 
 ## 📄 License
 
-MIT © 2025 Ardit Ceno
+[MIT](LICENSE) © 2025 Ardit Ceno
 
